@@ -1,7 +1,10 @@
 {
   "name": "fw8-web-mobile",
   "nativescript": {
-    "id": "org.nativescript.fw8webmobile"
+    "id": "org.nativescript.fw8webmobile",
+    "tns-android": {
+      "version": "6.0.2"
+    }
   },
   "version": "0.0.0",
   "scripts": {
