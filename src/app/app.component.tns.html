@@ -1,1 +1,20 @@
-  <page-router-outlet></page-router-outlet>
+<RadSideDrawer #sideDrawer>
+  <StackLayout tkDrawerContent class="sidedrawer-left">
+    <StackLayout class="sidedrawer-header">
+      <Label text="Header Title" class="title"></Label>
+    </StackLayout>
+    <StackLayout class="sidedrawer-content">
+      <StackLayout class="sidedrawer-list-item">
+        <Button class="btn btn-primary btn-special" text="Test" (tap)="onGoTest()"></Button>
+      </StackLayout>
+      <StackLayout class="sidedrawer-list-item">
+        <Button class="btn btn-primary btn-special" text="Test Modal" (tap)="openModalTest()"></Button>
+      </StackLayout>
+      <StackLayout class="sidedrawer-list-item">
+        <Button class="btn btn-primary btn-special" text="Search Modal" (tap)="openModalSearch()"></Button>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+
+  <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

@@ -1,6 +1,5 @@
 /* Add mobile styles for the component here.  */
-
-Button.special {
+.special {
     width: 500px;
     height: 100px;
 }

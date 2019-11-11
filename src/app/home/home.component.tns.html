@@ -1,6 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
-    <Button text="Button" [nsRouterLink]="['/test']" pageTransition="slide" clearHistory="true"></Button>
+<ActionBar [title]="title">
+  <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem android:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+</ActionBar>
+
+<StackLayout class="p-20">
+  <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
+  <Button text="Go Test" [nsRouterLink]="['/test']" pageTransition="slide" clearHistory="true"></Button>
+  <Button text="Go Demo" (tap)="onGoDemo()"></Button>
 </StackLayout>

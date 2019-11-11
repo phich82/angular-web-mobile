@@ -1,0 +1,13 @@
+.btn-special {
+    height: 150px;
+    width: 400px;
+    text-align: left;
+}
+
+.title {
+    font-size: 25px;
+    color: #ffe600;
+    background-color: rgb(60, 0, 255);
+    width: 100%;
+    padding: 10px;
+}

@@ -1,1 +1,57 @@
-<Button text="demo works!" class="btn btn-primary"></Button>
+<!--
+<BottomNavigation selectedIndex="1" (tabSelected)="onSelectedIndexChanged($event)">
+  <x!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)--x>
+  <TabStrip>
+    <TabStripItem>
+      <Label text="Cat"></Label>
+    </TabStripItem>
+    <TabStripItem class="special">
+      <Label text="Dog"></Label>
+    </TabStripItem>
+    <TabStripItem class="special">
+      <Label text="Mouse"></Label>
+    </TabStripItem>
+  </TabStrip>
+
+  <x!-- The number of TabContentItem components should corespond to the number of TabStripItem components --x>
+  <TabContentItem>
+    <GridLayout>
+      <Label text="Cat" class="h2 text-center"></Label>
+      <Button text="Go Back" (tap)="onGoBack()" class="btn btn-primary special"></Button>
+    </GridLayout>
+  </TabContentItem>
+  <TabContentItem>
+    <GridLayout>
+      <Label text="Dog" class="h2 text-center"></Label>
+      <router-outlet name="outletdog"></router-outlet>
+    </GridLayout>
+  </TabContentItem>
+  <TabContentItem>
+    <GridLayout>
+      <Label text="Mouse" class="h2 text-center"></Label>
+      <router-outlet name="outletmouse"></router-outlet>
+    </GridLayout>
+  </TabContentItem>
+</BottomNavigation>
+-->
+
+<TabView (selectedIndexChanged)="onSelectedIndexChanged($event)" 
+         [selectedIndex]="demoSelectedIndex"
+         selectedColor="#1083BF"
+         selectedTabTextColor="#6633BF"
+         tabTextFontSize="20"
+         tabTextColor="#1803BF"
+         tabBackgroundColor="#9560FD"
+         androidSelectedTabHighlightColor="#002332"
+         androidSwipeEnabled="true"
+>
+  <StackLayout *tabItem="{title: 'Cat', iconSource: 'res://icon', textTransform: 'capitalize'}">
+    <router-outlet name="outletcat"></router-outlet>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Dog', iconSource: 'res://icon'}">
+    <router-outlet name="outletdog"></router-outlet>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Mouse', iconSource: 'res://icon'}">
+    <router-outlet name="outletmouse"></router-outlet>
+  </StackLayout>
+</TabView>
