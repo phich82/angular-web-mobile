@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
-import { getRootView } from 'tns-core-modules/application';
+import { Burger } from '../modules/burger/burger';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +8,13 @@ import { getRootView } from 'tns-core-modules/application';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+
   title = 'Web & Mobile Framework Based Angular';
 
-  constructor(private router: Router) {  }
+  constructor(
+    private router: Router,
+    private burger: Burger
+  ) { }
 
   ngOnInit() {
   }
@@ -20,8 +23,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/demo']);
   }
 
-  onDrawerButtonTap() {
-    const sideDrawer = <RadSideDrawer>getRootView();
-		sideDrawer.showDrawer();
+  onGoLayout() {
+    this.router.navigate(['/layout']);
+  }
+
+  onShowBurger() {
+    this.burger.show();
   }
 }

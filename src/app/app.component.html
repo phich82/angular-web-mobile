@@ -1,1 +1,8 @@
+<ng-progress #progress></ng-progress>
+<button
+    (click)="testHttp()"
+    [disabled]="preventAbuse"
+    class="btn btn-primary"
+    style="width: 150px;"
+>{{ preventAbuse ? 'Wait...' : 'Test Http Request' }}</button>
 <router-outlet></router-outlet>

@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular';
+import { HttpClient } from '@angular/common/http';
+import { Burger } from './modules/burger/burger';
 
 @Component({
   selector: 'app-root',
@@ -9,25 +10,39 @@ import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular';
 })
 export class AppComponent {
 
-  @ViewChild(RadSideDrawerComponent, { static: true }) sideDrawerComponent: RadSideDrawerComponent;
+  preventAbuse = false;
 
-  constructor(private router: Router) {  }
+  constructor(
+    private router: Router,
+    private burger: Burger,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
   }
 
   onGoTest(): void {
     this.router.navigate(["/test"]);
-    this.sideDrawerComponent.sideDrawer.closeDrawer();
+    this.burger.hide();
   }
 
   openModalTest(): void {
     this.router.navigate(["/test"]);
-    this.sideDrawerComponent.sideDrawer.closeDrawer();
+    this.burger.hide();
   }
 
   openModalSearch(): void {
     this.router.navigate(["/test"]);
-    this.sideDrawerComponent.sideDrawer.closeDrawer();
+    this.burger.hide();
+  }
+  testHttp() {
+    console.log('---testing---');
+    this.preventAbuse = true;
+    this.http.get('https://reqres.in/api/users?delay=2').subscribe(res => {
+      console.log(res);
+      setTimeout(() => {
+        this.preventAbuse = false;
+      }, 800);
+    });
   }
 }

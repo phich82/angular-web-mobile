@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Modal } from './modal';
+import { Burger } from './burger';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ModalService extends Modal {
+export class BurgerService extends Burger {
 
   constructor() {
     super();
   }
 
-  show(header: string = '', title: string = '', body: any = null): void {
+  show(): void {
     alert("Method not implemented.");
   }
 

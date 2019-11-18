@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Location } from '@angular/common';
-import { ModalDialogOptions, ModalDialogService } from "nativescript-angular/modal-dialog";
 import { TestEntryComponent } from '../test-entry/test-entry.component';
 import { SearchEntryComponent } from '../search-entry/search-entry.component';
+import { Modal } from '@src/app/modules/modal/modal';
 
 @Component({
   selector: 'app-cat',
@@ -12,7 +12,7 @@ import { SearchEntryComponent } from '../search-entry/search-entry.component';
 export class CatComponent implements OnInit {
 
   constructor(
-    private modalService: ModalDialogService,
+    private modal: Modal,
     private vcRef: ViewContainerRef,
     private location: Location
   ) { }
@@ -21,19 +21,11 @@ export class CatComponent implements OnInit {
   }
 
   openModal(): void {
-    const options: ModalDialogOptions = {
-      // fullscreen: false,
-      viewContainerRef: this.vcRef
-    };
-    this.modalService.showModal(TestEntryComponent, options);
+    this.modal.show(TestEntryComponent, this.vcRef);
   }
 
   openModalSearch(): void {
-    const options: ModalDialogOptions = {
-      // fullscreen: false,
-      viewContainerRef: this.vcRef
-    };
-    this.modalService.showModal(SearchEntryComponent, options);
+    this.modal.show(SearchEntryComponent, this.vcRef);
   }
 
   onGoBackDemo() {

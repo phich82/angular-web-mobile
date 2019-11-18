@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view";
-import { Modal } from '@src/app/commons/modals/modal';
+import { Modal } from '@src/app/modules/modal/modal';
 
 @Component({
   selector: 'app-demo',
